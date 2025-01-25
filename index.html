@@ -3,26 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do-List</title>
+    <title>Todoist Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <div class="container">
+    <aside class="sidebar" id="sidebar">
+        <div class="logo"></div>
+        <button class="add-task" id="sidebarAddTaskBtn"><i class="fas fa-plus"></i> Add task</button>
+        <ul class="sidebar-menu">
+            <li><a href="#" data-section="inbox"><i class="fas fa-inbox"></i> Inbox</a></li>
+            <li><a href="#" data-section="today"><i class="fas fa-calendar-day"></i> Today</a></li>
+            <li><a href="#" data-section="upcoming"><i class="fas fa-calendar-alt"></i> Upcoming</a></li>
+            <li><a href="#" data-section="filters"><i class="fas fa-filter"></i> Filters & Labels</a></li>
+        </ul>
+        <div class="projects-header">
+            <h3>Projects</h3>
+            <button class="add-project-btn" id="addProjectBtn"><i class="fas fa-plus"></i></button>
+        </div>
+        <ul class="sidebar-menu" id="projectList">
+            <li><a href="#" data-project="Personal"><i class="fas fa-circle" style="color: #ff9900;"></i> Personal</a></li>
+            <li><a href="#" data-project="Work"><i class="fas fa-circle" style="color: #3366ff;"></i> Work</a></li>
+        </ul>
+    </aside>
+    <div class="main-content">
+        <header>
+            <button class="toggle-sidebar" id="toggleSidebar">☰</button>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <div>
+                <button class="add-task" id="headerAddTaskBtn"><i class="fas fa-plus"></i> Add task</button>
+                <i class="fas fa-bell"></i>
+                <div class="account-dropdown">
+                    <i class="fas fa-user-circle"></i>
+                    <div class="account-dropdown-content">
+                        <a href="#">Profile</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <h1 id="sectionTitle">Today</h1>
+            <ul class="task-list" id="taskList">
+                <!-- Tasks will be dynamically added here -->
+            </ul>
+        </main>
+    </div>
 
-    <div id="myDIV" class="header">
-        <h2>My To Do List</h2>
-        <input type="text" id="myInput" placeholder="Add Your task...">
-        <span onclick="newElement()" class="addBtn">Add</span>
+    <div id="addTaskModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Task</h2>
+            <form id="newTaskForm">
+                <input type="text" id="taskName" placeholder="Task name" required>
+                <select id="taskProject">
+                    <option value="Personal">Personal</option>
+                    <option value="Work">Work</option>
+                </select>
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
     </div>
-    <ul id="myUL">
-        <li>task 1</li>
-        <li class="checked">task 2</li>
-        <li>task 3</li>
-        <li>task 4</li>
-        <li>task 5</li>
-        <li>task 6</li>
-    </ul>
-    </div>
-    <script src="script.js"></script>
+
+    
+<script src="script.js"></script>
+    
 </body>
 </html>
+
